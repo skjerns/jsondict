@@ -39,10 +39,10 @@ import gzip
 import shutil
 import tempfile
 
-import asjson as json
+import json
 
 
-__version__ = '1.0'
+__version__ = '1.21'
 
 
 class JsonDict(dict):
@@ -152,9 +152,7 @@ class JsonDict(dict):
             self.open(self.filename, 'w').write(dump)
 
     def to_json(self):
-        dump = json.dumps(dict(self), debug=True)
-        if isinstance(dump, unicode):
-            dump = dump.encode('utf-8')
+        dump = json.dumps(dict(self))
         return dump
 
     def __str__(self):
